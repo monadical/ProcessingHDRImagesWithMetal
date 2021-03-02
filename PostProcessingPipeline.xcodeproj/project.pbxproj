@@ -310,7 +310,7 @@
 					};
 					3AB3B5AD202937B600547B49 = {
 						CreatedOnToolsVersion = 9.3;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -632,7 +632,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.$(PRODUCT_NAME)${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = PostProcessingPipeline;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = iphoneos.internal;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -653,7 +653,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.$(PRODUCT_NAME)${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = PostProcessingPipeline;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = iphoneos.internal;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

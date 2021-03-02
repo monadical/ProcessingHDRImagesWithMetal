@@ -81,6 +81,7 @@ constant GaussSample GaussKernelX[] =
     {{ 0.53805f, 0.f}, 0.44908f},
     {{ 2.06278f, 0.f}, 0.05092f}
 };
+
 constant size_t GAUSS_KERNEL_SIZE_X = sizeof(GaussKernelX) / sizeof(GaussKernelX[0]);
 
 constant GaussSample GaussKernelY[] =
@@ -91,7 +92,6 @@ constant GaussSample GaussKernelY[] =
     {{0.f,  2.06278f}, 0.05092f}
 };
 
-constant size_t GAUSS_KERNEL_SIZE_X = sizeof(GaussKernelX) / sizeof(GaussKernelX[0]);
 constant size_t GAUSS_KERNEL_SIZE_Y = sizeof(GaussKernelY) / sizeof(GaussKernelY[0]);
 
 // Horizontal pass
