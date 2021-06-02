@@ -332,7 +332,7 @@ id<MTLTexture> texture_from_radiance_file(NSString * fileName, id<MTLDevice> dev
     // Get a pointer to the data
     const uint16_t * srcData = (const uint16_t * )CFDataGetBytePtr(cgImageData);
 
-    // Metal exposes an RGBA16Float format, but source data is RGB F16, so we'll introduce an extra channel of padding
+    // Metal exposes an RGBA16Float format, but source data is RGB F16, so extra channel of padding added
     const size_t kPixelCount = width * height;
     const size_t kDstChannelCount = 4;
     const size_t kDstSize = kPixelCount * sizeof(uint16_t) * kDstChannelCount;

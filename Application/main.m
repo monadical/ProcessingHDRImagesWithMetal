@@ -17,8 +17,8 @@ Main app entry point.
 
 int main(int argc, char * argv[]) {
 
-#if TARGET_OS_SIMULATOR && (!defined(__IPHONE_13_0) ||  !defined(__TVOS_13_0))
-#error No simulator support for Metal API for this SDK version.  Must build for a device
+#if TARGET_OS_SIMULATOR
+#error This sample does not support the simulator.  Must build for a device
 #endif
 
     @autoreleasepool {

@@ -30,7 +30,7 @@ static const NSString* kTonemapWhitePointLabel         = @"W. Point";
 
 static const NSString* kEDRSectionLabel                = @"Extended Dynamic Range";
 static const NSString* kMaxEDRValueLabel               = @"Max EDR Value";
-static const NSString* kMaxEDRReferenceLabel           = @"Max EDR Referrence";
+static const NSString* kMaxEDRReferenceLabel           = @"Max EDR Reference";
 static const NSString* kMaxEDRPotentialLabel           = @"Max EDR Potential";
 
 static const NSString* kUtilSectionLabel               = @"Util";
@@ -71,6 +71,7 @@ static const enum TonemapOperatorType kDefaultTonemapOperatorType = kTonemapOper
 static const float kTonemapWhitePointMinimum = 1.f;
 static const float kTonemapWhitePointMaximum = 15.f;
 static const float kDefaultTonemapWhitePoint = 6.24f;
+static const float kDefaultTonemapEDRScaleWeight = 0.5f;
 
 // Note that the app will increment frame in fixed intervals when animating
 static const NSUInteger kDefaultCameraStepCount = 1000;

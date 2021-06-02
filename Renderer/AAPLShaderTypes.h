@@ -60,6 +60,8 @@ typedef struct AAPLUniforms
     float exposureKey;
 
     float tonemapWhitePoint;
+
+    float luminanceScale;
 } AAPLUniforms;
 
 #endif /* ShaderTypes_h */

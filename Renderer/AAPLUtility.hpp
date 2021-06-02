@@ -35,8 +35,8 @@ NSString * string_for_exposure_control_type(uint32_t typeIndex);
 struct AAPLVertex * generate_sphere_data(uint32_t * vertexCount);
 void delete_sphere_data(struct AAPLVertex * data);
 
-/// As a source of HDR input, we'll leverage radiance (.hdr) files. This helper method will provide a radiance file loaded into an MTLTexture
-///  given a source file name and MTLDevice
+/// As a source of HDR input, renderer leverages radiance (.hdr) files. This helper method provides a radiance file
+/// loaded into an MTLTexture given a source file name and MTLDevice
 id<MTLTexture> texture_from_radiance_file(NSString * fileName, id<MTLDevice> device, NSError ** error);
 
 #ifdef __cplusplus

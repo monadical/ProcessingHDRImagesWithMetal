@@ -14,7 +14,6 @@
 		24D8AC1B24887AEC0073F70C /* AAPLViewControllerIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D8AC1A24887AEC0073F70C /* AAPLViewControllerIOS.m */; };
 		24D8AC1E24887C5C0073F70C /* AAPLViewControllerTVOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D8AC1D24887C5C0073F70C /* AAPLViewControllerTVOS.m */; };
 		24E4A9B024819164003AA839 /* AAPLViewControllerMac.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E4A9AF24819164003AA839 /* AAPLViewControllerMac.m */; };
-		3AB3B591202937B600547B49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB3B58F202937B600547B49 /* Main.storyboard */; };
 		3AB3B59D202937B600547B49 /* AAPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3B59C202937B600547B49 /* AAPLAppDelegate.m */; };
 		3AB3B5A3202937B600547B49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB3B5A1202937B600547B49 /* Main.storyboard */; };
 		3AB3B5A6202937B600547B49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB3B5A4202937B600547B49 /* LaunchScreen.storyboard */; };
@@ -37,9 +36,10 @@
 		3AB3B5D82029381D00547B49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3B5D72029381D00547B49 /* main.m */; };
 		3AB3B5D92029381D00547B49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3B5D72029381D00547B49 /* main.m */; };
 		3AB3B5DA2029381D00547B49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3B5D72029381D00547B49 /* main.m */; };
-		406A672D249833C6000AE382 /* table_mountain_1_4k.hdr in Resources */ = {isa = PBXBuildFile; fileRef = 406A6729249833C6000AE382 /* table_mountain_1_4k.hdr */; };
-		406A672E249833C6000AE382 /* table_mountain_1_4k.hdr in Resources */ = {isa = PBXBuildFile; fileRef = 406A6729249833C6000AE382 /* table_mountain_1_4k.hdr */; };
-		406A672F249833C6000AE382 /* table_mountain_1_4k.hdr in Resources */ = {isa = PBXBuildFile; fileRef = 406A6729249833C6000AE382 /* table_mountain_1_4k.hdr */; };
+		4063E6EA264377CE009CB1BB /* kloppenheim_06_4k.hdr in Resources */ = {isa = PBXBuildFile; fileRef = 4063E6E9264377CE009CB1BB /* kloppenheim_06_4k.hdr */; };
+		4063E6EB264377CE009CB1BB /* kloppenheim_06_4k.hdr in Resources */ = {isa = PBXBuildFile; fileRef = 4063E6E9264377CE009CB1BB /* kloppenheim_06_4k.hdr */; };
+		4063E6EC264377CE009CB1BB /* kloppenheim_06_4k.hdr in Resources */ = {isa = PBXBuildFile; fileRef = 4063E6E9264377CE009CB1BB /* kloppenheim_06_4k.hdr */; };
+		40CB6092263CD4B90005CD14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40CB6091263CD4B90005CD14 /* Main.storyboard */; };
 		7294147B2218065E00C0214C /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729414792218063C00C0214C /* MetalKit.framework */; };
 		7294147C2218065E00C0214C /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729414792218063C00C0214C /* MetalKit.framework */; };
 /* End PBXBuildFile section */
@@ -65,7 +65,6 @@
 		3AB3B583202937B600547B49 /* AAPLMathUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAPLMathUtilities.h; sourceTree = "<group>"; };
 		3AB3B584202937B600547B49 /* AAPLMathUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAPLMathUtilities.m; sourceTree = "<group>"; };
 		3AB3B589202937B600547B49 /* PostProcessingPipeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostProcessingPipeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AB3B590202937B600547B49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3AB3B592202937B600547B49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AB3B599202937B600547B49 /* PostProcessingPipeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostProcessingPipeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB3B59B202937B600547B49 /* AAPLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAPLAppDelegate.h; sourceTree = "<group>"; };
@@ -77,7 +76,8 @@
 		3AB3B5B7202937B600547B49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3AB3B5B9202937B600547B49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AB3B5D72029381D00547B49 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		406A6729249833C6000AE382 /* table_mountain_1_4k.hdr */ = {isa = PBXFileReference; lastKnownFileType = file; path = table_mountain_1_4k.hdr; sourceTree = "<group>"; };
+		4063E6E9264377CE009CB1BB /* kloppenheim_06_4k.hdr */ = {isa = PBXFileReference; lastKnownFileType = file; path = kloppenheim_06_4k.hdr; sourceTree = "<group>"; };
+		40CB6091263CD4B90005CD14 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		472C8D29501EA2709F6A3A91 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		6725A8F3A8764ED3023275B7 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
 		729414792218063C00C0214C /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.Internal.sdk/System/Library/Frameworks/MetalKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -155,12 +155,12 @@
 		3AB3B58B202937B600547B49 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				3AB3B58F202937B600547B49 /* Main.storyboard */,
-				3AB3B592202937B600547B49 /* Info.plist */,
 				240287D524792AEF00CCD209 /* AAPLWindowController.h */,
 				240287D624792AEF00CCD209 /* AAPLWindowController.m */,
 				24E4A9AE24819164003AA839 /* AAPLViewControllerMac.h */,
 				24E4A9AF24819164003AA839 /* AAPLViewControllerMac.m */,
+				40CB6091263CD4B90005CD14 /* Main.storyboard */,
+				3AB3B592202937B600547B49 /* Info.plist */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -215,7 +215,7 @@
 		406A6727249833C6000AE382 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				406A6729249833C6000AE382 /* table_mountain_1_4k.hdr */,
+				4063E6E9264377CE009CB1BB /* kloppenheim_06_4k.hdr */,
 			);
 			path = Assets;
 			sourceTree = SOURCE_ROOT;
@@ -339,8 +339,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AB3B591202937B600547B49 /* Main.storyboard in Resources */,
-				406A672D249833C6000AE382 /* table_mountain_1_4k.hdr in Resources */,
+				4063E6EA264377CE009CB1BB /* kloppenheim_06_4k.hdr in Resources */,
+				40CB6092263CD4B90005CD14 /* Main.storyboard in Resources */,
 				3AB3B5C7202937B600547B49 /* AAPLMathUtilities.h in Resources */,
 				3AB3B5C1202937B600547B49 /* AAPLShaderTypes.h in Resources */,
 			);
@@ -350,9 +350,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4063E6EB264377CE009CB1BB /* kloppenheim_06_4k.hdr in Resources */,
 				3AB3B5A3202937B600547B49 /* Main.storyboard in Resources */,
 				3AB3B5C5202937B600547B49 /* AAPLMathUtilities.h in Resources */,
-				406A672E249833C6000AE382 /* table_mountain_1_4k.hdr in Resources */,
 				3AB3B5BF202937B600547B49 /* AAPLShaderTypes.h in Resources */,
 				3AB3B5A6202937B600547B49 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -362,8 +362,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4063E6EC264377CE009CB1BB /* kloppenheim_06_4k.hdr in Resources */,
 				3AB3B5B8202937B600547B49 /* Main.storyboard in Resources */,
-				406A672F249833C6000AE382 /* table_mountain_1_4k.hdr in Resources */,
 				3AB3B5C6202937B600547B49 /* AAPLMathUtilities.h in Resources */,
 				3AB3B5C0202937B600547B49 /* AAPLShaderTypes.h in Resources */,
 			);
@@ -416,14 +416,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3AB3B58F202937B600547B49 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3AB3B590202937B600547B49 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3AB3B5A1202937B600547B49 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

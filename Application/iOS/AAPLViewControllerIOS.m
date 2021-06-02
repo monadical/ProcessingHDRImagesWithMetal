@@ -129,7 +129,7 @@ static const UISegmentIndexType kDefaultUISegmentIndexType = kUISegmentIndexType
 
 #pragma mark Helpers
 
-// We'll use this when handling gesture input to ignore touches interacting with our parameter tweak UI
+// Handles gesture input to ignore touches interacting with our parameter tweak UI
 - (bool)isContainedInSceneUIView:(UIGestureRecognizer*)recognizer
 {
     CGPoint test = [recognizer locationInView:_mainUIView];

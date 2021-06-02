@@ -69,35 +69,9 @@ static inline vector_float4 vector_float4_make(float x, float y, float z, float 
     return v;
 }
 
-// --
-static inline float fClamp(float minimum, float maximum, float value)
-{
-    if (value < minimum)
-    {
-        return minimum;
-    }
-    else if (value > maximum)
-    {
-        return maximum;
-    }
+#define CLAMP(min, max, value) \
+    ((value) < (min) ? (min) : (((value) > (max)) ? (max) : (value)))
 
-    return value;
-}
-
-// --
-static inline float iClamp(int minimum, int maximum, int value)
-{
-    if (value < minimum)
-    {
-        return minimum;
-    }
-    else if (value > maximum)
-    {
-        return maximum;
-    }
-
-    return value;
-}
 
 /// Returns a vector that is linearly interpolated between the two given vectors.
 vector_float3 AAPL_SIMD_OVERLOAD vector_lerp(vector_float3 v0, vector_float3 v1, float t);

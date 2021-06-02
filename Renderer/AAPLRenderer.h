@@ -15,7 +15,7 @@ enum ExposureControlType;
 
 - (nonnull instancetype)initWithMetalKitView:(nonnull MTKView *)mtkView cameraStepCount:(NSUInteger)cameraSteps resolutionScale:(float)resolutionScale;
 
-// Expose the following properties for UI
+// Expose the following properties for UI:
 
 // Bloom
 @property float bloomIntensity;
@@ -30,6 +30,7 @@ enum ExposureControlType;
 // Tonemapping
 @property enum TonemapOperatorType tonemapType;
 @property (nonatomic) float tonemapWhitepoint;
+@property (nonatomic) float tonemapEDRScalingWeight;
 
 // Camera
 @property (readonly) NSUInteger cameraAnimationStepCount;
@@ -47,10 +48,15 @@ enum ExposureControlType;
 @property CGFloat maximumEDRPotentialValue;
 @property CGFloat maximumEDRReferenceValue;
 
-// Other Helpers
+@property (getter=isPostProcessingEnabled) BOOL postProcessingEnabled;
 
-// Handle change of device (macOS only)
+
+// Other Helpers:
+
+#ifdef TARGET_MACOS
+// Handle change of device and/or display.
 - (void)updateWithDevice:(_Nonnull id<MTLDevice>)device andView:(MTKView * _Nonnull)view;
+#endif
 
 - (void)updateWithSize:(CGSize)size;
 

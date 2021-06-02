@@ -17,6 +17,8 @@ Implementation of macOS view controller.
     MTKView *_view;
     AAPLRenderer *_renderer;
 
+    __weak IBOutlet NSSwitch *_postProcessingEnabled;
+
     __weak IBOutlet NSTextField *_bloomSectionLabel;
 
     __weak IBOutlet NSTextField *_bloomIntensityLabel;
@@ -51,6 +53,9 @@ Implementation of macOS view controller.
     __weak IBOutlet NSTextField *_tonemapWhitePointLabel;
     __weak IBOutlet NSSlider *_tonemapWhitePointSlider;
     __weak IBOutlet NSTextField *_tonemapWhitePointTextField;
+    __weak IBOutlet NSTextField *_tonemapScaleLabel;
+    __weak IBOutlet NSSlider *_tonemapEDRScalingWeightSlider;
+    __weak IBOutlet NSTextField *_tonemapEDRScalingTextField;
 
     __weak IBOutlet NSTextField *_edrSectionLabel;
 
@@ -152,6 +157,9 @@ Implementation of macOS view controller.
     [self configureUIElements];
     [self handleExposureTypeUpdate:kDefaultExposureControlType];
     [self handleTonemapTypeUpdate:kDefaultTonemapOperatorType];
+
+    [self handlePostProcessingToggle:YES];
+    _postProcessingEnabled.state = NSControlStateValueOn;
 }
 
 #pragma mark -
@@ -191,6 +199,8 @@ Implementation of macOS view controller.
 {
     // Query and set new values.
     _renderer.maximumEDRValue = _view.window.screen.maximumExtendedDynamicRangeColorComponentValue;
+    _renderer.maximumEDRValue = MAX(_renderer.maximumEDRValue, 1.0);
+
     _maxEDRValueTextField.floatValue = _view.window.screen.maximumExtendedDynamicRangeColorComponentValue;
 
     if (@available(macOS 10.15, *))
@@ -211,6 +221,61 @@ Implementation of macOS view controller.
 
         _maxEDRPotentialLabel.enabled = NO;
         _maxEDRPotentialTextField.enabled = NO;
+    }
+}
+
+- (void)handlePostProcessingToggle:(BOOL)enabled
+{
+    _renderer.postProcessingEnabled = enabled;
+
+    _bloomIntensitySlider.enabled = enabled;
+    _bloomIntensityTextField.enabled = enabled;
+    _bloomThresholdSlider.enabled = enabled;
+    _bloomThresholdTextField.enabled = enabled;
+    _bloomRangeTextField.enabled = enabled;
+    _bloomRangeSlider.enabled = enabled;
+    _exposureTypePopUp.enabled = enabled;
+    _tonemapOperatorPopUp.enabled = enabled;
+    _tonemapWhitePointSlider.enabled = enabled;
+    _tonemapWhitePointTextField.enabled = enabled;
+    _tonemapEDRScalingWeightSlider.enabled = enabled;
+    _tonemapEDRScalingTextField.enabled = enabled;
+
+    if(enabled)
+    {
+        _bloomSectionLabel.textColor = NSColor.labelColor;
+        _bloomIntensityLabel.textColor = NSColor.labelColor;
+        _bloomThresholdLabel.textColor = NSColor.labelColor;
+        _bloomRangeLabel.textColor = NSColor.labelColor;
+        _exposureSectionLabel.textColor = NSColor.labelColor;
+        _exposureTypeLabel.textColor = NSColor.labelColor;
+        _manualExposureLabel.textColor = NSColor.labelColor;
+        _tonemapSectionLabel.textColor = NSColor.labelColor;
+        _tonemapOperatorLabel.textColor = NSColor.labelColor;
+        _tonemapWhitePointLabel.textColor = NSColor.labelColor;
+        _tonemapScaleLabel.textColor = NSColor.labelColor;
+
+        [self handleExposureTypeUpdate:(ExposureControlType)_exposureTypePopUp.indexOfSelectedItem];
+    }
+    else
+    {
+        _bloomSectionLabel.textColor = NSColor.disabledControlTextColor;
+        _bloomIntensityLabel.textColor = NSColor.disabledControlTextColor;
+        _bloomThresholdLabel.textColor = NSColor.disabledControlTextColor;
+        _bloomRangeLabel.textColor = NSColor.disabledControlTextColor;
+        _exposureSectionLabel.textColor = NSColor.disabledControlTextColor;
+        _exposureTypeLabel.textColor = NSColor.disabledControlTextColor;
+        _exposureKeyLabel.textColor = NSColor.disabledControlTextColor;
+        _manualExposureLabel.textColor = NSColor.disabledControlTextColor;
+        _tonemapSectionLabel.textColor = NSColor.disabledControlTextColor;
+        _tonemapOperatorLabel.textColor = NSColor.disabledControlTextColor;
+        _tonemapWhitePointLabel.textColor = NSColor.disabledControlTextColor;
+        _tonemapScaleLabel.textColor = NSColor.disabledControlTextColor;
+
+        _exposureKeySlider.enabled = NO;
+        _exposureKeyTextField.enabled = NO;
+        _manualExposureSlider.enabled = NO;
+        _manualExposureTextField.enabled = NO;
     }
 }
 
@@ -278,6 +343,8 @@ Implementation of macOS view controller.
     _exposureKeyTextField.floatValue = kExposureKeys[kDefaultExposureKeyIndex];
     _renderer.exposureKeyIndex = kDefaultExposureKeyIndex;
 
+    _renderer.tonemapEDRScalingWeight = kDefaultTonemapEDRScaleWeight;
+
     // Tonemapping
     _tonemapSectionLabel.stringValue = [kTonemapSectionLabel copy];
 
@@ -294,6 +361,10 @@ Implementation of macOS view controller.
     _tonemapWhitePointSlider.maxValue = kTonemapWhitePointMaximum;
     _tonemapWhitePointSlider.floatValue = kDefaultTonemapWhitePoint;
     _tonemapWhitePointTextField.floatValue = kDefaultTonemapWhitePoint;
+    _tonemapEDRScalingWeightSlider.minValue = 0;
+    _tonemapEDRScalingWeightSlider.maxValue = 1.0;
+    _tonemapEDRScalingTextField.floatValue = kDefaultTonemapEDRScaleWeight;
+    _tonemapEDRScalingWeightSlider.floatValue = kDefaultTonemapEDRScaleWeight;
     _renderer.tonemapWhitepoint = kDefaultTonemapWhitePoint;
 
     // Extended Dynamic Range
@@ -461,6 +532,12 @@ Implementation of macOS view controller.
 
 #pragma mark -
 #pragma mark Callbacks
+// Post Processing
+- (IBAction)postProcessingEnabledCallback:(NSSwitch *)sender
+{
+    [self handlePostProcessingToggle:(sender.state == NSControlStateValueOn)];
+    _postProcessingEnabled.state = sender.state;
+}
 
 // Bloom
 - (IBAction)bloomIntensitySliderCallback:(NSSlider *)sender
@@ -512,6 +589,12 @@ Implementation of macOS view controller.
     _tonemapWhitePointTextField.floatValue = sender.floatValue;
     _renderer.tonemapWhitepoint = sender.floatValue;
 }
+- (IBAction)tonemapEDRScalingWeightSliderCallback:(NSSlider *)sender
+{
+    _tonemapEDRScalingTextField.floatValue = sender.floatValue;
+    _renderer.tonemapEDRScalingWeight = sender.floatValue;
+}
+
 
 // Resolution Scale
 - (IBAction)resolutionScaleSliderCallback:(NSSlider *)sender
@@ -533,7 +616,7 @@ Implementation of macOS view controller.
 
     if (isRangeClamped)
     {
-        int32_t v = iClamp(0, (int)_renderer.cameraAnimationStepCount - 1, control.intValue);
+        int32_t v = CLAMP(0, (int)_renderer.cameraAnimationStepCount - 1, control.intValue);
 
         _renderer.cameraAnimationFrameIndex = v;
         _cameraFrameIndexTextField.intValue = v;
